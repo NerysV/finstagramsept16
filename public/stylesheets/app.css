@@ -1,0 +1,24 @@
+header {
+    background-color: #BADBEF;
+    color: #79C2F0;
+}
+
+body{background-color: #CFE5EF;
+}
+
+main{
+    background-color: white;
+    padding: 16px;
+}
+
+.my-class-name {}
+
+#my-unique-id {}
+
+.finstagram-post {
+    margin-bottom: 40px;
+}
+
+.finstagram-post .user-info img{
+    border-radius: 50%;
+}
