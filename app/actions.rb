@@ -46,7 +46,7 @@ get '/' do
     }]
   }
 
-  [@finstagram_post_Ei, @finstagram_post_Fu_Xuan, @finstagram_post_Firefly].to_s
+  @finstagram_posts = [@finstagram_post_Ei, @finstagram_post_Fu_Xuan, @finstagram_post_Firefly]
 
   erb(:index)
 end

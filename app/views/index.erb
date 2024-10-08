@@ -1,77 +1,30 @@
-
-    <body>
-        <header> 
-            <h1>Finstagram</h1>
-        </header>
-        <main role="main">
-            <article class="finstagram-post">
-                <div class="user-info">
-                    <img src="<%= @finstagram_post_Ei[:avatar_url] %>" alt="<%= @finstagram_post_Ei[:username] %>">
-                    <h2><%= @finstagram_post_Ei[:username] %></h2>
-                    <h3><%= @finstagram_post_Ei[:humanized_time_ago] %></h3>
-                </div>
-                <a class="photo" href="#">
-                    <img src= "<%= @finstagram_post_Ei[:photo_url] %>" alt="finstagram post from <%= @finstagram_post_Ei[:username] %>">
-                </a>
-                <div class="actions">
-                    <%= @finstagram_post_Ei[:like_count] %> likes
-                    <span class="comment-count"><%= @finstagram_post_Ei[:comment_count] %> comment</span>
-                </div>
-                <ul class="comments">
-                    <li>
-                        <p>
-                            <%= @finstagram_post_Ei[:comments][0][:username] %>: <%= @finstagram_post_Ei[:comments][0][:text] %>
-                        </p>
-                    </li>
-                </ul>
-            </article>
-
-            <article class="finstagram-post">
-                <div class="user-info">
-                    <img src="https://tiermaker.com/images/media/template_images/2024/16187654/honkai-star-rail-nameless-honor-icons-16187654-3/j--fu-xuan---in-leisure.png" alt="Fu_Xuan">
-                    <h2>Fu_Xuan</h2>
-                    <h3>2 Hours ago</h3>
-                </div>
-                <a class="photo" href="#">
-                    <img src="https://cdna.artstation.com/p/assets/images/images/051/237/794/large/kenny-chan-shibi-totoro-7.jpg?1656791284" alt="finstagram post from Fu_Xuan">
-                </a>
-                <div class="actions">
-                    0 likes
-                    <span class="comment-count">1 comments</span>
-                </div>
-                <ul class="comments">
-                    <li>
-                        <p>
-                            Fu_Xuan: Would you like to know your fortune?
-                        </p>
-                    </li>
-
-                </ul>
-            </article>
-
-            <article class="finstagram-post">
-                <div class="user-info">
-                    <img src="https://upload-os-bbs.hoyolab.com/upload/2024/07/03/124234939/cd637e94feba1ae8268e9f60b653974c_3365412906547484073.jpg?x-oss-process=image%2Fresize%2Cs_1000%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp%2Fquality%2Cq_70" alt="Firefly">
-                    <h2>Firefly</h2>
-                    <h3>4 hours ago</h3>
-                </div>
-                <a class="photo" href="#">
-                    <img src="https://preview.redd.it/high-quality-stelle-and-firefly-selfie-also-no-uid-v0-zidps4on1mjc1.png?auto=webp&s=c1c3786a0c504483b99b3e9f63da6581492f8905" alt="finstagram post from Firefly">
-                </a>
-                <div class="actions">
-                    4726 likes
-                    <span class="comment-count">1 comment</span>
-                </div>
-                <ul class="comments">
-                    <li>
-                        <p>
-                            Firefly: My day with Stelle :)
-                        </p>
-                    </li>
-                </ul>
-            </article>
-
-        </main>
-            
-    </body>
-</html>
+<header>
+  <h1>Finstagram</h1>
+</header>
+<main role="main">
+  <% @finstagram_posts.each do |finstagram_post| %>
+    <article class="finstagram-post">
+      <div class="user-info">
+        <img src="<%= finstagram_post[:avatar_url] %>" alt="<%= finstagram_post[:username] %>">
+        <h2><%= finstagram_post[:username] %></h2>
+        <h3><%= finstagram_post[:humanized_time_ago] %></h3>
+      </div>
+      <a class="photo" href="#">
+        <img src="<%= finstagram_post[:photo_url] %>" alt="finstagram post from <%= finstagram_post[:username] %>">
+      </a>
+      <div class="actions">
+        <%= finstagram_post[:like_count] %> likes
+        <span class="comment-count"><%= finstagram_post[:comment_count] %> comment</span>
+      </div>
+      <ul class="comments">
+        <% finstagram_post[:comments].each do |comment| %> 
+          <li>
+            <p>
+             <%= comment[:username] %>: <%= comment[:text] %>
+            </p>
+          </li>  
+      <% end %>  
+      </ul>
+    </article>
+  <% end %>
+</main>
